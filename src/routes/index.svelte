@@ -1,9 +1,15 @@
 <script>
+import Outer from "./outer.svelte";
+
   let mp = {x:0, y:0};
 
   function handleMousechange(event){
     mp.x = event.clientX;
     mp.y = event.clientY;
+  }
+
+  function handleMessage(event){
+    alert(event.detail.text);
   }
 </script>
 
@@ -20,3 +26,5 @@
   <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
 </div>
 
+
+<Outer on:message={handleMessage}/>
